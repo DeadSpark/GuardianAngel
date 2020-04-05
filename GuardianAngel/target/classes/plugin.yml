@@ -1,0 +1,20 @@
+name: GuardianAngel
+version: 1.0
+main: me.deadspark.plugin.guardianangel.GuardianAngel
+api-version: 1.13
+authors: [DeadSpark]
+description: A personal Guardian fulfilling all your wishes
+website: bit.ly/MysticalCrafts
+commands:
+  fly:
+    description: Toggle yours or targets fly mode
+    aliases: [flight]
+  god:
+    description: Toggle yours or targets god mode
+    aliases: [invulnerable]
+  heal:
+    description: Get healed by your lonely Guardian Angel
+    aliases: [health, hearts]
+  feed:
+    description: Get fed by your lonely Guardian Angel
+    aliases: [eat, food]
