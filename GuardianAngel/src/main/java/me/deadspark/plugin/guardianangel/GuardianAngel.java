@@ -27,6 +27,8 @@ public final class GuardianAngel extends JavaPlugin {
         System.out.println(YELLOW_BOLD+"["+CYAN+"GuardianAngel"+YELLOW_BOLD+"] "+GREEN+"Plugin made by DeadSpark"+RESET);
         System.out.println(YELLOW_BOLD+"["+CYAN+"GuardianAngel"+YELLOW_BOLD+"] "+GREEN+"Version "+pversion+" has been Enabled"+RESET);
 
+        // Registering command
+        
         Objects.requireNonNull(getCommand("fly")).setExecutor(new Fly());
         Objects.requireNonNull(getCommand("god")).setExecutor(new God());
         Objects.requireNonNull(getCommand("heal")).setExecutor(new Heal());
