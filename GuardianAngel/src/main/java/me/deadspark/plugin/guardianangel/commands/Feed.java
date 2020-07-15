@@ -10,9 +10,6 @@ import java.util.Objects;
 
 public class Feed implements CommandExecutor {
 
-    public static final String RESET = "\033[0m";
-    public static final String GREEN = "\033[0;32m";
-
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (sender instanceof Player) {
@@ -41,7 +38,7 @@ public class Feed implements CommandExecutor {
 
             if (args.length == 0) {
 
-                System.out.println(GREEN + "Please provide player name to feed" + RESET);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "Please provide a player name");
 
             }
 
@@ -49,7 +46,7 @@ public class Feed implements CommandExecutor {
 
                 Player ctarget = Bukkit.getPlayer(args[0]);
 
-                System.out.println(GREEN + "Successfully healed the " + Objects.requireNonNull(ctarget).getDisplayName() + RESET);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "Successfully fed " + ctarger.getDisplayName());
                 ctarget.sendMessage(ChatColor.AQUA + "You have been fed by an Angel");
                 ctarget.setFoodLevel(20);
 
