@@ -6,16 +6,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class God implements CommandExecutor {
-
-    public static final String CYAN = "\033[0;36m";
-    public static final String RESET = "\033[0m";
-    public static final String GREEN = "\033[0;32m";
-
+    
     ArrayList<Player> player_list = new ArrayList<>();
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -66,7 +61,7 @@ public class God implements CommandExecutor {
 
             if (args.length == 0) {
 
-                System.out.println(GREEN + "Please provide player name to toggle his God mode" + RESET);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "Please provide a player name");
 
             }
 
@@ -79,14 +74,14 @@ public class God implements CommandExecutor {
                     Objects.requireNonNull(ctarget).setInvulnerable(false);
                     player_list.remove(ctarget);
                     ctarget.sendMessage(ChatColor.AQUA + "God mode has been Disabled for " + ctarget.getDisplayName());
-                    System.out.println(CYAN + "God mode for " + ctarget.getDisplayName() + " has been Disabled" + RESET);
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "God mode for target has been disabled");
 
                 }else if (!player_list.contains(ctarget)) {
 
                     Objects.requireNonNull(ctarget).setInvulnerable(true);
                     player_list.add(ctarget);
                     ctarget.sendMessage(ChatColor.AQUA + "God mode has been Enabled for " + ctarget.getDisplayName());
-                    System.out.println(CYAN + "God mode for " + ctarget.getDisplayName() + " has been Enabled" + RESET);
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "God mode for target has been enabled");
 
                 }
 
