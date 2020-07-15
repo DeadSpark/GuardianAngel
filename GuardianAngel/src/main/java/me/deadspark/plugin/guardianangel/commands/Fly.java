@@ -11,10 +11,6 @@ import java.util.Objects;
 
 public class Fly implements CommandExecutor {
 
-    public static final String CYAN = "\033[0;36m";
-    public static final String RESET = "\033[0m";
-    public static final String GREEN = "\033[0;32m";
-
     ArrayList<Player> player_list = new ArrayList<>();
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -62,7 +58,7 @@ public class Fly implements CommandExecutor {
 
             if (args.length == 0) {
 
-                System.out.println(CYAN + "Please provide a player name to toggle flight for" + RESET);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "Please provide a player name");
 
             }
 
@@ -74,14 +70,14 @@ public class Fly implements CommandExecutor {
 
                     Objects.requireNonNull(ctarget).setAllowFlight(false);
                     player_list.remove(ctarget);
-                    System.out.println(GREEN + "Flight mode has been Disabled for " + ctarget.getDisplayName() + RESET);
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "Flight mode for target has been disabled");
                     ctarget.sendMessage(ChatColor.AQUA + "Flight mode has been Disabled for " + ctarget.getDisplayName());
 
                 }else if (!player_list.contains(ctarget)) {
 
                     Objects.requireNonNull(ctarget).setAllowFlight(true);
                     player_list.add(ctarget);
-                    System.out.println(GREEN + "Flight mode has been Enabled for " + ctarget.getDisplayName() + RESET);
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "Flight mode for target has been enabled");
                     ctarget.sendMessage(ChatColor.AQUA + "Flight mode has been Enabled for " + ctarget.getDisplayName());
 
                 }
